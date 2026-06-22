@@ -1,0 +1,309 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>世界杯 · 稳定入口与页面说明</title>
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+    body {
+      background: #f3f5f7;
+      font-family: system-ui, -apple-system, 'Segoe UI', Roboto, 'Helvetica Neue', sans-serif;
+      color: #1e2a3a;
+      line-height: 1.55;
+      padding: 0 1.25rem;
+    }
+    .container {
+      max-width: 1024px;
+      margin: 0 auto;
+      padding: 1.25rem 0 3rem;
+    }
+    /* 顶部导航 */
+    nav {
+      display: flex;
+      flex-wrap: wrap;
+      align-items: center;
+      justify-content: space-between;
+      background: #ffffff;
+      border-radius: 18px;
+      padding: 0.75rem 1.5rem;
+      box-shadow: 0 2px 6px rgba(0, 0, 0, 0.04);
+      border: 1px solid #e6eaef;
+      margin-bottom: 2.5rem;
+    }
+    .nav-brand {
+      font-weight: 600;
+      font-size: 1.2rem;
+      letter-spacing: -0.01em;
+      color: #0e1d2f;
+    }
+    .nav-links {
+      display: flex;
+      gap: 1.2rem;
+      flex-wrap: wrap;
+    }
+    .nav-links a {
+      text-decoration: none;
+      color: #3a4b5e;
+      font-size: 0.95rem;
+      padding: 0.2rem 0;
+      border-bottom: 2px solid transparent;
+      transition: border-color 0.2s;
+    }
+    .nav-links a:hover {
+      border-bottom-color: #1b6b8f;
+      color: #0e2a3a;
+    }
+    .nav-links a:first-child {
+      color: #0e2a3a;
+      font-weight: 500;
+      border-bottom-color: #7fa9c0;
+    }
+    /* hero 简洁介绍 */
+    .hero {
+      background: #ffffff;
+      border-radius: 24px;
+      padding: 2rem 2rem 1.8rem;
+      border: 1px solid #e2e8f0;
+      box-shadow: 0 4px 10px rgba(0,0,0,0.02);
+      margin-bottom: 2rem;
+    }
+    .hero h1 {
+      font-size: 2rem;
+      font-weight: 550;
+      letter-spacing: -0.02em;
+      margin-bottom: 0.6rem;
+      color: #0d1f30;
+    }
+    .hero p {
+      font-size: 1.05rem;
+      color: #2d3f52;
+      max-width: 720px;
+    }
+    .hero a {
+      color: #1a6a8a;
+      text-decoration: none;
+      font-weight: 500;
+      border-bottom: 1px dotted #b2c9d9;
+    }
+    .hero a:hover {
+      border-bottom-style: solid;
+      color: #024a6a;
+    }
+    /* 三个场景模块 — 卡片式 */
+    .scenes {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 1.5rem;
+      margin-bottom: 2.8rem;
+    }
+    .scene-card {
+      background: #ffffff;
+      border: 1px solid #dee5ed;
+      border-radius: 20px;
+      padding: 1.6rem 1.4rem 1.8rem;
+      box-shadow: 0 3px 8px rgba(0,0,0,0.02);
+      transition: box-shadow 0.15s, transform 0.1s;
+    }
+    .scene-card:hover {
+      box-shadow: 0 6px 14px rgba(0,0,0,0.04);
+      transform: translateY(-1px);
+    }
+    .scene-card h3 {
+      font-size: 1.2rem;
+      font-weight: 600;
+      margin-bottom: 0.7rem;
+      padding-bottom: 0.25rem;
+      border-bottom: 2px solid #e0e8f0;
+      display: inline-block;
+      letter-spacing: -0.01em;
+    }
+    .scene-card p {
+      color: #31465b;
+      font-size: 0.95rem;
+      margin-bottom: 0.6rem;
+    }
+    .scene-card .tag {
+      display: inline-block;
+      background: #eef3f9;
+      color: #1d4a67;
+      font-size: 0.75rem;
+      padding: 0.2rem 0.8rem;
+      border-radius: 30px;
+      border: 1px solid #d6e0ec;
+      margin-top: 0.25rem;
+    }
+    /* 常见说明 / 信息模块 */
+    .info-box {
+      background: #ffffff;
+      border-radius: 20px;
+      border: 1px solid #e2eaf2;
+      padding: 1.8rem 2rem;
+      box-shadow: 0 2px 6px rgba(0,0,0,0.02);
+      margin-bottom: 2rem;
+    }
+    .info-box h2 {
+      font-size: 1.3rem;
+      font-weight: 600;
+      margin-bottom: 1.2rem;
+      color: #0d2236;
+    }
+    .faq-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 1.2rem 1.8rem;
+    }
+    .faq-item {
+      padding: 0.2rem 0;
+    }
+    .faq-item strong {
+      display: block;
+      font-weight: 600;
+      color: #1b3b50;
+      margin-bottom: 0.15rem;
+    }
+    .faq-item span {
+      color: #3d5369;
+      font-size: 0.92rem;
+    }
+    .faq-item a {
+      color: #1a6a8a;
+      text-decoration: none;
+      border-bottom: 1px dotted #b2c9d9;
+    }
+    .faq-item a:hover {
+      border-bottom-style: solid;
+    }
+    /* 底部提示 */
+    .footnote {
+      font-size: 0.85rem;
+      color: #667e96;
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: space-between;
+      align-items: center;
+      border-top: 1px solid #dbe3ed;
+      padding-top: 1.5rem;
+      margin-top: 0.4rem;
+    }
+    .footnote a {
+      color: #346f8e;
+      text-decoration: none;
+    }
+    .footnote a:hover {
+      text-decoration: underline;
+    }
+    /* 响应式 */
+    @media (max-width: 760px) {
+      .scenes {
+        grid-template-columns: 1fr 1fr;
+      }
+      .faq-grid {
+        grid-template-columns: 1fr;
+      }
+      nav {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 0.6rem;
+      }
+      .hero h1 {
+        font-size: 1.7rem;
+      }
+    }
+    @media (max-width: 520px) {
+      .scenes {
+        grid-template-columns: 1fr;
+      }
+      body {
+        padding: 0 0.9rem;
+      }
+      .hero {
+        padding: 1.5rem 1.2rem;
+      }
+      .info-box {
+        padding: 1.4rem 1.2rem;
+      }
+    }
+  </style>
+</head>
+<body>
+<div class="container">
+  <!-- 顶部导航 -->
+  <nav>
+    <div class="nav-brand">⚽ 2026 信息页</div>
+    <div class="nav-links">
+      <a href="https://url-shijiebei2026.com">世界杯</a>
+      <a href="#scene-section">场景</a>
+      <a href="#faq-section">说明</a>
+    </div>
+  </nav>
+
+  <!-- hero 核心介绍 -->
+  <div class="hero">
+    <h1>通向 <a href="https://url-shijiebei2026.com">世界杯</a> 的稳定入口</h1>
+    <p>
+      本站围绕赛事相关信息提供轻量导航与页面说明。无论你希望了解赛程背景、关注赛区动态，还是需要直达
+      <a href="https://url-shijiebei2026.com">世界杯</a> 主站，这里都是一个清晰、克制的起点。
+      内容聚焦于信息密度与实用性，避免干扰性元素，帮助访客快速定位目标。
+    </p>
+  </div>
+
+  <!-- 三个场景模块 -->
+  <div class="scenes" id="scene-section">
+    <div class="scene-card">
+      <h3>赛前准备</h3>
+      <p>查阅小组抽签、举办城市及场馆概况，通过主站获取第一手公告。页面聚合常见参考链接，减少重复搜索。</p>
+      <span class="tag">时间线</span>
+      <span class="tag">赛区</span>
+    </div>
+    <div class="scene-card">
+      <h3>实时跟进</h3>
+      <p>比赛日期间，从 <a href="https://url-shijiebei2026.com">世界杯</a> 官方渠道获取积分、对阵与新闻。本页提供稳定的导航入口，避免信息碎片化。</p>
+      <span class="tag">赛程</span>
+      <span class="tag">积分</span>
+    </div>
+    <div class="scene-card">
+      <h3>回顾与数据</h3>
+      <p>历史纪录、球队统计、经典赛事归档。通过主站索引可以直达深度内容，适合研究者与资深爱好者浏览。</p>
+      <span class="tag">数据库</span>
+      <span class="tag">档案</span>
+    </div>
+  </div>
+
+  <!-- 常见说明 (FAQ 摘要) -->
+  <div class="info-box" id="faq-section">
+    <h2>常见说明 · 页面导航</h2>
+    <div class="faq-grid">
+      <div class="faq-item">
+        <strong>如何快速到达主站？</strong>
+        <span>页面内任意带有「<a href="https://url-shijiebei2026.com">世界杯</a>」字样的链接均可直接跳转，无需二次寻找。</span>
+      </div>
+      <div class="faq-item">
+        <strong>信息更新频率？</strong>
+        <span>本页仅提供静态说明与汇总，不追踪实时数据。赛事变动请以主站公告为准。</span>
+      </div>
+      <div class="faq-item">
+        <strong>场景模块是否固定？</strong>
+        <span>根据访问目的划分三个典型方向，但 <a href="https://url-shijiebei2026.com">世界杯</a> 主站覆盖更全面内容。</span>
+      </div>
+      <div class="faq-item">
+        <strong>移动端适配吗？</strong>
+        <span>采用响应式布局，卡片与导航在手机、平板均保持清晰排版。</span>
+      </div>
+    </div>
+  </div>
+
+  <!-- 底部 -->
+  <div class="footnote">
+    <span>简洁·专业 · 轻量导航</span>
+    <span>
+      <a href="https://url-shijiebei2026.com">世界杯</a> · 页面说明 v1
+    </span>
+  </div>
+</div>
+</body>
+</html>
